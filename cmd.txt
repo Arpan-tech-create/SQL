@@ -21,7 +21,7 @@ mysql> select fname,marks,
     -> when marks>=90 then 'First Class'
     -> when marks>=70 AND marks<=80 then 'Second class'
     -> when marks>=60 AND marks<=70 then 'third class'
-    -> else 'You are fail'
+    -> else 'You are failed'
     -> end as marksText
     -> from entry;
 +---------+-------+--------------+
