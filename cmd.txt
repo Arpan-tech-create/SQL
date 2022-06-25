@@ -1,0 +1,233 @@
+
+
+1 ........CASE.....
+
+mysql> select * from entry;
++------+---------+--------+------+-------+-------------+
+| Srno | fname   | lname  | dept | marks | country     |
++------+---------+--------+------+-------+-------------+
+|    1 | Arpan   | Bhoi   | CSE  |    90 | India       |
+|    2 | Priti   | Patel  | EC   |    94 | Australia   |
+|    3 | Preksha | Patel  | EC   |    60 | barmuda     |
+|    4 | Abdul   | Parmar | ME   |    60 | barmuda     |
+|    7 | Taksh   | Patel  | CSE  |    61 | new-zealand |
+|    8 | Nilesh  | Banker | CSE  |    30 | Africa      |
+|    9 | Raka    | zone   | EE   |    40 | Chaina      |
++------+---------+--------+------+-------+-------------+
+7 rows in set (0.01 sec)
+
+mysql> select fname,marks,
+    -> case
+    -> when marks>=90 then 'First Class'
+    -> when marks>=70 AND marks<=80 then 'Second class'
+    -> when marks>=60 AND marks<=70 then 'third class'
+    -> else 'You are fail'
+    -> end as marksText
+    -> from entry;
++---------+-------+--------------+
+| fname   | marks | marksText    |
++---------+-------+--------------+
+| Arpan   |    90 | First Class  |
+| Priti   |    94 | First Class  |
+| Preksha |    60 | third class  |
+| Abdul   |    60 | third class  |
+| Taksh   |    61 | third class  |
+| Nilesh  |    30 | You are fail |
+| Raka    |    40 | You are fail |
++---------+-------+--------------+
+7 rows in set (0.00 sec)
+
+
+2. to show all the dbs
+
+        Show Databases;
+
+3. To show tables
+
+    show tables;
+
+4. for using dbs
+
+    use dbname;
+
+5. insert values..
+
+mysql> insert into entry(Srno,fname,lname,dept,marks,country)
+    -> values(10,'MUNNI','PATEL','IT',65,'KENYA');
+Query OK, 1 row affected (0.05 sec)
+
+
+6. Delete particular raw...
+
+mysql> delete from entry
+    -> where Srno=10;
+Query OK, 1 row affected (0.04 sec)
+
+
+7. Delete multiple records
+
+mysql> select * from entry;
++------+---------+--------+------+-------+-------------+
+| Srno | fname   | lname  | dept | marks | country     |
++------+---------+--------+------+-------+-------------+
+|    1 | Arpan   | Bhoi   | CSE  |    90 | India       |
+|    2 | Priti   | Patel  | EC   |    94 | Australia   |
+|    3 | Preksha | Patel  | EC   |    60 | barmuda     |
+|    4 | Abdul   | Parmar | ME   |    60 | barmuda     |
+|    7 | Taksh   | Patel  | CSE  |    61 | new-zealand |
+|    8 | Nilesh  | Banker | CSE  |    30 | Africa      |
+|    9 | Raka    | zone   | EE   |    40 | Chaina      |
++------+---------+--------+------+-------+-------------+
+7 rows in set (0.00 sec)
+
+NOW.,,,,,,
+mysql> delete from entry
+    -> where Srno=9 OR fname='Nilesh';
+Query OK, 2 rows affected (0.04 sec)
+
+mysql> select * from entry;
++------+---------+--------+------+-------+-------------+
+| Srno | fname   | lname  | dept | marks | country     |
++------+---------+--------+------+-------+-------------+
+|    1 | Arpan   | Bhoi   | CSE  |    90 | India       |
+|    2 | Priti   | Patel  | EC   |    94 | Australia   |
+|    3 | Preksha | Patel  | EC   |    60 | barmuda     |
+|    4 | Abdul   | Parmar | ME   |    60 | barmuda     |
+|    7 | Taksh   | Patel  | CSE  |    61 | new-zealand |
++------+---------+--------+------+-------+-------------+
+5 rows in set (0.01 sec)
+
+
+
+
+8. Update Records ...
+
+mysql> update entry
+    -> set Srno=5
+    -> where fname='Taksh';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from entry;
++------+---------+--------+------+-------+-------------+
+| Srno | fname   | lname  | dept | marks | country     |
++------+---------+--------+------+-------+-------------+
+|    1 | Arpan   | Bhoi   | CSE  |    90 | India       |
+|    2 | Priti   | Patel  | EC   |    94 | Australia   |
+|    3 | Preksha | Patel  | EC   |    60 | barmuda     |
+|    4 | Abdul   | Parmar | ME   |    60 | barmuda     |
+|    5 | Taksh   | Patel  | CSE  |    61 | new-zealand |
++------+---------+--------+------+-------+-------------+
+5 rows in set (0.04 sec)
+
+
+
+
+9. update multiple records
+
+mysql> update entry
+    -> set country="Barmuda"
+    -> where Srno=3 OR Srno=4;
+Query OK, 2 rows affected (0.04 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from entry;
++------+---------+--------+------+-------+-------------+
+| Srno | fname   | lname  | dept | marks | country     |
++------+---------+--------+------+-------+-------------+
+|    1 | Arpan   | Bhoi   | CSE  |    90 | India       |
+|    2 | Priti   | Patel  | EC   |    94 | Australia   |
+|    3 | Preksha | Patel  | EC   |    60 | Barmuda     |
+|    4 | Abdul   | Parmar | ME   |    60 | Barmuda     |
+|    5 | Taksh   | Patel  | CSE  |    61 | new-zealand |
++------+---------+--------+------+-------+-------------+
+5 rows in set (0.04 sec)
+
+
+
+10. Change Table Name...
+
+mysql> alter table entry
+    -> rename infos;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> select * from entry;
+ERROR 1146 (42S02): Table 'bi.entry' doesn't exist
+mysql> select * from infos;
++------+---------+--------+------+-------+-------------+
+| Srno | fname   | lname  | dept | marks | country     |
++------+---------+--------+------+-------+-------------+
+|    1 | Arpan   | Bhoi   | CSE  |    90 | India       |
+|    2 | Priti   | Patel  | EC   |    94 | Australia   |
+|    3 | Preksha | Patel  | EC   |    60 | Barmuda     |
+|    4 | Abdul   | Parmar | ME   |    60 | Barmuda     |
+|    5 | Taksh   | Patel  | CSE  |    61 | new-zealand |
++------+---------+--------+------+-------+-------------+
+5 rows in set (0.02 sec)
+
+
+
+11. change column name...
+
+mysql> alter table infos
+    -> rename column country to Region;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from infos;
++------+---------+--------+------+-------+-------------+
+| Srno | fname   | lname  | dept | marks | Region      |
++------+---------+--------+------+-------+-------------+
+|    1 | Arpan   | Bhoi   | CSE  |    90 | India       |
+|    2 | Priti   | Patel  | EC   |    94 | Australia   |
+|    3 | Preksha | Patel  | EC   |    60 | Barmuda     |
+|    4 | Abdul   | Parmar | ME   |    60 | Barmuda     |
+|    5 | Taksh   | Patel  | CSE  |    61 | new-zealand |
++------+---------+--------+------+-------+-------------+
+5 rows in set (0.01 sec)
+
+
+
+
+12. Add column...
+
+mysql> alter table infos
+    -> add email varchar(255) not null;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from infos;
++------+---------+--------+------+-------+-------------+-------+
+| Srno | fname   | lname  | dept | marks | Region      | email |
++------+---------+--------+------+-------+-------------+-------+
+|    1 | Arpan   | Bhoi   | CSE  |    90 | India       |       |
+|    2 | Priti   | Patel  | EC   |    94 | Australia   |       |
+|    3 | Preksha | Patel  | EC   |    60 | Barmuda     |       |
+|    4 | Abdul   | Parmar | ME   |    60 | Barmuda     |       |
+|    5 | Taksh   | Patel  | CSE  |    61 | new-zealand |       |
++------+---------+--------+------+-------+-------------+-------+
+5 rows in set (0.00 sec)
+
+
+
+
+13 . delete column..
+
+mysql> alter table infos
+    -> drop column email;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from infos;
++------+---------+--------+------+-------+-------------+
+| Srno | fname   | lname  | dept | marks | Region      |
++------+---------+--------+------+-------+-------------+
+|    1 | Arpan   | Bhoi   | CSE  |    90 | India       |
+|    2 | Priti   | Patel  | EC   |    94 | Australia   |
+|    3 | Preksha | Patel  | EC   |    60 | Barmuda     |
+|    4 | Abdul   | Parmar | ME   |    60 | Barmuda     |
+|    5 | Taksh   | Patel  | CSE  |    61 | new-zealand |
++------+---------+--------+------+-------+-------------+
+5 rows in set (0.00 sec)
+
+
