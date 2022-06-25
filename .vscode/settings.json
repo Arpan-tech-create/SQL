@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3305,
+            "driver": "MySQL",
+            "name": "NEW-FIRST",
+            "database": "bi",
+            "username": "root",
+            "password": "mysqlinstaller@001"
+        }
+    ]
+}
