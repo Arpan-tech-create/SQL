@@ -32,8 +32,8 @@ mysql> select fname,marks,
 | Preksha |    60 | third class  |
 | Abdul   |    60 | third class  |
 | Taksh   |    61 | third class  |
-| Nilesh  |    30 | You are fail |
-| Raka    |    40 | You are fail |
+| Nilesh  |    30 | You are failed |
+| Raka    |    40 | You are failed |
 +---------+-------+--------------+
 7 rows in set (0.00 sec)
 
