@@ -24,14 +24,14 @@ mysql> select fname,marks,
     -> else 'You are failed'
     -> end as marksText
     -> from entry;
-+---------+-------+--------------+
-| fname   | marks | marksText    |
-+---------+-------+--------------+
-| Arpan   |    90 | First Class  |
-| Priti   |    94 | First Class  |
-| Preksha |    60 | third class  |
-| Abdul   |    60 | third class  |
-| Taksh   |    61 | third class  |
++---------+-------+----------------+
+| fname   | marks | marksText      |
++---------+-------+----------------+ 
+| Arpan   |    90 | First Class    |
+| Priti   |    94 | First Class    |
+| Preksha |    60 | third class    |
+| Abdul   |    60 | third class    |
+| Taksh   |    61 | third class    |
 | Nilesh  |    30 | You are failed |
 | Raka    |    40 | You are failed |
 +---------+-------+--------------+
