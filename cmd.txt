@@ -395,3 +395,11 @@ mysql> select avg(marks)
 
 ******sum()*********
 
+mysql> select sum(marks)
+    -> from entry;
++------------+
+| sum(marks) |
++------------+
+|        774 |
++------------+
+1 row in set (0.00 sec)
