@@ -314,7 +314,7 @@ mysql> select min(marks),max(marks) from entry;
 
 
 
-Query :  Display all the details of student which has min & Max value.
+Query :  Display all the details of student which has min & Max value of marks.
 
 
 mysql> select * from entry
@@ -349,3 +349,49 @@ mysql> select * from entry
 |   11 | Sara  | Khan  | Film |    45 | INDIA     |
 +------+-------+-------+------+-------+-----------+
 2 rows in set (0.00 sec)
+
+
+
+17 . Count(), avg(),sum() functions .
+
+****Count()***************
+mysql> select count(fname)
+    -> from entry
+    -> where marks>=70;
++--------------+
+| count(fname) |
++--------------+
+|            6 |
++--------------+
+1 row in set (0.04 sec)
+
+
+
+****AVG()***********
+mysql> select avg(marks)
+    -> from entry
+    -> where marks>=70;
++------------+
+| avg(marks) |
++------------+
+|    80.3333 |
++------------+
+1 row in set (0.04 sec)
+
+
+Average of all students marks..
+
+mysql> select avg(marks)
+    -> from entry;
++------------+
+| avg(marks) |
++------------+
+|    70.3636 |
++------------+
+1 row in set (0.00 sec)
+
+
+
+
+******sum()*********
+
