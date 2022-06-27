@@ -258,3 +258,94 @@ mysql> select * from entry;
 |   10 | Sara    | Khan     | Film  |    45 | INDIA       |
 +------+---------+----------+-------+-------+-------------+
 11 rows in set (0.04 sec)
+
+
+
+15 . LIMIT in sql
+
+mysql> select fname,lname,dept
+    -> from entry
+    -> limit 3;
++---------+-------+------+
+| fname   | lname | dept |
++---------+-------+------+
+| Arpan   | Bhoi  | CSE  |
+| Priti   | Patel | EC   |
+| Preksha | Patel | EC   |
++---------+-------+------+
+3 rows in set (0.00 sec)
+
+
+
+16 .  min(), MAX() function.
+
+* min()
+
+mysql> select min(marks) from entry;
++------------+
+| min(marks) |
++------------+
+|         45 |
++------------+
+1 row in set (0.00 sec)
+
+
+
+* max()
+
+mysql> select max(marks) from entry;
++------------+
+| max(marks) |
++------------+
+|         94 |
++------------+
+1 row in set (0.00 sec)
+
+
+we can also display both value in same raw like...
+
+mysql> select min(marks),max(marks) from entry;
++------------+------------+
+| min(marks) | max(marks) |
++------------+------------+
+|         45 |         94 |
++------------+------------+
+1 row in set (0.00 sec)
+
+
+
+Query :  Display all the details of student which has min & Max value.
+
+
+mysql> select * from entry
+    -> where marks=(select min(marks) from entry);
++------+-------+-------+------+-------+--------+
+| Srno | fname | lname | dept | marks | Region |
++------+-------+-------+------+-------+--------+
+|   11 | Sara  | Khan  | Film |    45 | INDIA  |
++------+-------+-------+------+-------+--------+
+1 row in set (0.00 sec)
+
+
+
+mysql> select * from entry
+    -> where marks=(select max(marks) from entry);
++------+-------+-------+------+-------+-----------+
+| Srno | fname | lname | dept | marks | Region    |
++------+-------+-------+------+-------+-----------+
+|    2 | Priti | Patel | EC   |    94 | Australia |
++------+-------+-------+------+-------+-----------+
+1 row in set (0.00 sec)
+
+
+
+
+mysql> select * from entry
+    -> where marks=(select min(marks) from entry) OR marks=(select max(marks) from entry);
++------+-------+-------+------+-------+-----------+
+| Srno | fname | lname | dept | marks | Region    |
++------+-------+-------+------+-------+-----------+
+|    2 | Priti | Patel | EC   |    94 | Australia |
+|   11 | Sara  | Khan  | Film |    45 | INDIA     |
++------+-------+-------+------+-------+-----------+
+2 rows in set (0.00 sec)
