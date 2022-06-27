@@ -403,3 +403,15 @@ mysql> select sum(marks)
 |        774 |
 +------------+
 1 row in set (0.00 sec)
+
+
+
+18 . move table from one db to another.
+
+mysql> rename table mails.emails to bi.emails;
+Query OK, 0 rows affected (0.03 sec)
+
+
+---> here ,   mails = Database name
+                bi = Database name
+                emails=table name
