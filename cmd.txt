@@ -231,3 +231,30 @@ mysql> select * from infos;
 5 rows in set (0.00 sec)
 
 
+
+14 . Insert multiple Rows .
+
+mysql> insert into entry values
+    -> (8,'Manik','Malhotra','Music',76,'INDIA'),
+    -> (9,'Mukti','Verma','Music',66,'INDIA'),
+    -> (10,'Sara','Khan','Film',45,'INDIA');
+Query OK, 3 rows affected (0.04 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from entry;
++------+---------+----------+-------+-------+-------------+
+| Srno | fname   | lname    | dept  | marks | Region      |
++------+---------+----------+-------+-------+-------------+
+|    1 | Arpan   | Bhoi     | CSE   |    90 | India       |
+|    2 | Priti   | Patel    | EC    |    94 | Australia   |
+|    3 | Preksha | Patel    | EC    |    60 | Barmuda     |
+|    4 | Abdul   | Parmar   | ME    |    60 | Barmuda     |
+|    5 | Taksh   | Patel    | CSE   |    61 | new-zealand |
+|    6 | Babita  | Patel    | MECH  |    72 | Pakistan    |
+|    7 | jetha   | Patel    | IT    |    78 | Pakistan    |
+|    8 | MAN     | BHOI     | IT    |    72 | India       |
+|    8 | Manik   | Malhotra | Music |    76 | INDIA       |
+|    9 | Mukti   | Verma    | Music |    66 | INDIA       |
+|   10 | Sara    | Khan     | Film  |    45 | INDIA       |
++------+---------+----------+-------+-------+-------------+
+11 rows in set (0.04 sec)
