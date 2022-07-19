@@ -1,0 +1,13 @@
+DDL- Data Definition Language
+
+
+Commands :    create , drop , alter ,  truncate
+
+
+create - For creating Table in database
+
+drop - To drop Table 
+
+alter -  modify and add attributes into the table. 
+
+truncate -  to delete all the records from table.

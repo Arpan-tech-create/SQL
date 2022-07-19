@@ -1,0 +1,5 @@
+DQL - Data Query Language
+
+Command : select 
+
+it's Used to select perticular Attributes from table .

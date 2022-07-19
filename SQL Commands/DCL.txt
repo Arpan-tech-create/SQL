@@ -1,0 +1,8 @@
+DCL- Data Control Language
+
+Commands : Grant, Revoke
+
+
+grant - to give the permission to user to modify the records. 
+
+revoke - To get back permission from user to modify the records.

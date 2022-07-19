@@ -1,0 +1,12 @@
+DML - Data Manipulation Language
+
+
+
+Commands  : insert, update , delete
+
+
+insert - Insert the values into the table
+
+update - update data into the table
+
+delete - delete the records or data from table
