@@ -447,3 +447,102 @@ mysql> select concat("i'm"," Arpan"," Bhoi") as concatedstring;
 | i'm Arpan Bhoi |
 +----------------+
 1 row in set (0.00 sec)
+
+
+
+20 . Order by 
+
+mysql> select * from entry
+    -> order by marks asc;
++------+---------+----------+-------+-------+-------------+
+| Srno | fname   | lname    | dept  | marks | region      |
++------+---------+----------+-------+-------+-------------+
+|    3 | Preksha | Patel    | EC    |    60 | Barmuda     |
+|    4 | Abdul   | Parmar   | ME    |    60 | Barmuda     |
+|    5 | Taksh   | Patel    | CSE   |    61 | new-zealand |
+|   10 | Mukti   | Verma    | Music |    66 | INDIA       |
+|   11 | sara    | KHAN     | mech  |    67 | Asia        |
+|    6 | Babita  | Patel    | MECH  |    72 | Pakistan    |
+|    8 | Mann    | BHOI     | IT    |    72 | India       |
+|    9 | Manik   | Malhotra | Music |    76 | INDIA       |
+|    7 | jetha   | Patel    | IT    |    78 | Pakistan    |
+|    1 | Arpan   | Bhoi     | CSE   |    90 | India       |
+|    2 | Priti   | Patel    | EC    |    94 | Australia   |
++------+---------+----------+-------+-------+-------------+
+11 rows in set (0.00 sec)
+
+
+
+
+
+mysql> select * from entry
+    -> order by marks asc,region desc;
++------+---------+----------+-------+-------+-------------+
+| Srno | fname   | lname    | dept  | marks | region      |
++------+---------+----------+-------+-------+-------------+
+|    3 | Preksha | Patel    | EC    |    60 | Barmuda     |
+|    4 | Abdul   | Parmar   | ME    |    60 | Barmuda     |
+|    5 | Taksh   | Patel    | CSE   |    61 | new-zealand |
+|   10 | Mukti   | Verma    | Music |    66 | INDIA       |
+|   11 | sara    | KHAN     | mech  |    67 | Asia        |
+|    6 | Babita  | Patel    | MECH  |    72 | Pakistan    |
+|    8 | Mann    | BHOI     | IT    |    72 | India       |
+|    9 | Manik   | Malhotra | Music |    76 | INDIA       |
+|    7 | jetha   | Patel    | IT    |    78 | Pakistan    |
+|    1 | Arpan   | Bhoi     | CSE   |    90 | India       |
+|    2 | Priti   | Patel    | EC    |    94 | Australia   |
++------+---------+----------+-------+-------+-------------+
+11 rows in set (0.00 sec)
+
+
+
+21 . null & not null values .
+
+mysql> select fname,lname,marks
+    -> from entry
+    -> where marks is null;
+Empty set (0.00 sec)
+
+
+
+for not null values...
+
+mysql> select marks
+    -> from entry
+    -> where marks is not null;
++-------+
+| marks |
++-------+
+|    90 |
+|    94 |
+|    60 |
+|    60 |
+|    61 |
+|    72 |
+|    78 |
+|    72 |
+|    76 |
+|    66 |
+|    67 |
++-------+
+11 rows in set (0.00 sec)
+
+
+
+22 . auto increment 
+
+mysql> create table hello(srno int not null auto_increment,
+    -> lastname varchar(255),
+    -> fname varchar(255),
+    -> primary key (srno)
+    -> );
+Query OK, 0 rows affected (0.10 sec)
+
+
+
+23 . add auto increment in existing table
+
+mysql> alter table entry
+    -> modify srno int not null auto_increment primary key;
+Query OK, 11 rows affected (0.05 sec)
+Records: 11  Duplicates: 0  Warnings: 0
